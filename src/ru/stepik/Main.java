@@ -84,82 +84,34 @@ public class Main {
         }
 
         // Задача 7:
-        int age1 = 25;
-        int salary1 = 60_000;
+        int age1 = 31;
+        int salary1 = 85_000;
         int wantedSum = 330_000;
-        if (age1 < 23 && salary1 < 80_000) {
-            double maxPayment = salary1 * 0.5;
-            double creditPayment = wantedSum * 1.11 / 12;
-            boolean yes = maxPayment >= creditPayment;
-            System.out.print("Максимальный платеж при ЗП " + salary1 + " равен " + maxPayment + " рублей. " +
-                    "Платеж по кредиту " + (int) creditPayment + " рублей. ");
-            if (yes) {
-                System.out.println("Одобрено.");
-            } else {
-                System.out.println("Отказано.");
-            }
+        double rate = 1.1;
+        double maxPayment = salary1 * 0.5;
+        double creditPayment = wantedSum * rate / 12;
+        boolean yes = maxPayment >= creditPayment;
+        if (salary1 > 80_000) {
+            rate -= 0.007;
+            creditPayment = wantedSum * rate / 12;
         }
-        if (age1 >= 23 && age1 < 30 && salary1 < 80_000) {
-            double maxPayment = salary1 * 0.5;
-            double creditPayment = wantedSum * 1.105 / 12;
-            boolean yes = maxPayment >= creditPayment;
-            System.out.print("Максимальный платеж при ЗП " + salary1 + " равен " + maxPayment + " рублей. " +
-                    "Платеж по кредиту " + (int) creditPayment + " рублей. ");
-            if (yes) {
-                System.out.println("Одобрено.");
-            } else {
-                System.out.println("Отказано.");
-            }
+        if (age1 < 30) {
+            creditPayment = wantedSum * (rate + 0.005) / 12;
+        }
+        if (age1 < 23) {
+            creditPayment = wantedSum * (rate + 0.01) / 12;
+        }
+        System.out.print("Максимальный платеж при ЗП " + salary1 + " равен " + maxPayment + " рублей. " +
+                "Платеж по кредиту " + (int) creditPayment + " рублей. ");
+
+        if (yes) {
+            System.out.println("Одобрено");
+        } else {
+            System.out.println("Отклонено");
         }
 
-        if (age1 < 23 && salary1 > 80_000) {
-            double maxPayment = salary1 * 0.5;
-            double creditPayment = wantedSum * 1.103 / 12;
-            boolean yes = maxPayment >= creditPayment;
-            System.out.print("Максимальный платеж при ЗП " + salary1 + " равен " + maxPayment + " рублей. " +
-                    "Платеж по кредиту " + (int) creditPayment + " рублей. ");
-            if (yes) {
-                System.out.println("Одобрено.");
-            } else {
-                System.out.println("Отказано.");
-            }
-        }
-        if (age1 >= 23 && age1 < 30 && salary1 > 80_000) {
-            double maxPayment = salary1 * 0.5;
-            double creditPayment = wantedSum * 1.098 / 12;
-            boolean yes = maxPayment >= creditPayment;
-            System.out.print("Максимальный платеж при ЗП " + salary1 + " равен " + maxPayment + " рублей. " +
-                    "Платеж по кредиту " + (int) creditPayment + " рублей. ");
-            if (yes) {
-                System.out.println("Одобрено.");
-            } else {
-                System.out.println("Отказано.");
-            }
-        }
-        if (age1 >= 30 && salary1 < 80_000) {
-            double maxPayment = salary1 * 0.5;
-            double creditPayment = wantedSum * 1.1 / 12;
-            boolean yes = maxPayment >= creditPayment;
-            System.out.print("Максимальный платеж при ЗП " + salary1 + " равен " + maxPayment + " рублей. " +
-                    "Платеж по кредиту " + (int) creditPayment + " рублей. ");
-            if (yes) {
-                System.out.println("Одобрено.");
-            } else {
-                System.out.println("Отказано.");
-            }
-        }
-        if (age1 >= 30 && salary1 > 80_000) {
-            double maxPayment = salary1 * 0.5;
-            double creditPayment = wantedSum * 1.03 / 12;
-            boolean yes = maxPayment >= creditPayment;
-            System.out.print("Максимальный платеж при ЗП " + salary1 + " равен " + maxPayment + " рублей. " +
-                    "Платеж по кредиту " + (int) creditPayment + " рублей. ");
-            if (yes) {
-                System.out.println("Одобрено.");
-            } else {
-                System.out.println("Отказано.");
-            }
-        }
     }
 }
+
+
 
